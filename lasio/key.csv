@@ -1,0 +1,6 @@
+Column,Unit,Value
+Depth (ft),ft,Depth in ft
+%Mg,wt_pct,XRF Magnesium
+Calc,wt_pct,XRD Calcite
+%Al,wt_pct,XRF Aluminum
+Dol,wt_pct,XRD Dolomite
