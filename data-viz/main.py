@@ -1,24 +1,25 @@
 import matplotlib.pyplot as plt
 import numpy as np
+import csv
 
 data_file = input("Please enter the name of the data file: ")
 if data_file.endswith(".csv") != True:
 	data_file += ".csv"
 
-# data = np.loadtxt(open(data_file, "r"), dtype="float", delimiter=",", skiprows=1)
-data = np.genfromtxt(data_file, delimiter=',', skip_header=True)[:, 1:]
-# data = np.random.randn(2, 100)
-print("data are", data)
-print("data zero are", data[0])
-print("first column zero are", data[:,0])
-print("5th column zero are", data[:,4])
+data = np.genfromtxt(data_file, delimiter=',', skip_header=True)[:, 0:]
 
-# fig, axs = plt.subplots(2, 2, figsize=(5, 5))
-# axs[0, 0].hist(data[0])
-# axs[1, 0].scatter(data[0], data[1])
-# axs[0, 1].scatter(data[:,0], data[:,4])
-plt.scatter(data[:,0], data[:,4])
-# axs[1, 1].hist2d(data[0], data[1])
+with open(data_file, mode="r", encoding="utf-8-sig") as f:
+    d_reader = csv.DictReader(f)
+    data_headers = d_reader.fieldnames
 
-plt.savefig("temp.png")
-# plt.show()
+fig, axs = plt.subplots(2, 2, figsize=(15, 10))
+axs[0, 0].scatter(data[:,0], data[:,4], c=data[:,29])
+axs[0, 0].title.set_text("%Si vs. Depth Colored by Quartz")
+axs[1, 0].scatter(data[:,4], data[:,29], c=data[:,29])
+axs[1, 0].title.set_text("%Si vs. %Quartz Colored by Quartz")
+axs[0, 1].scatter(data[:,0], data[:,8], c=data[:,32])
+axs[0, 1].title.set_text("%Ca vs. Depth Colored by Calcite")
+axs[1, 1].scatter(data[:,8], data[:,32], c=data[:,32])
+axs[1, 1].title.set_text("%Ca vs. %Calcite Colored by Calcite")
+
+plt.savefig("Plot.png")
