@@ -6,9 +6,9 @@ import os
 key = input("Please enter the name of the legend: ")
 data = input("Please enter the name of the sheet to be LAS'd: ")
 file_name = input("Please enter the name of the save file: ")
-if (key.endswith(".csv") != True):
+if key.endswith(".csv") != True:
 	key += ".csv"
-if (data.endswith(".csv") != True):
+if data.endswith(".csv") != True:
 	data += ".csv"
 
 keys = np.loadtxt(open(key, "r"), dtype="str", delimiter=",", skiprows=1)
