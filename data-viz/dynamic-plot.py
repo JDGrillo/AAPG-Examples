@@ -2,9 +2,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 import csv
 
-data_file = input("Please enter the name of the data file: ")
-if data_file.endswith(".csv") != True:
-	data_file += ".csv"
+# data_file = input("Please enter the name of the data file: ")
+# if data_file.endswith(".csv") != True:
+# 	data_file += ".csv"
+data_file = "AAPG-Dataset-01.csv"
 
 data_dictionary = {
     "depth": 0,
