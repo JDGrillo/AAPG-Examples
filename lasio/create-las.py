@@ -13,7 +13,8 @@ if data.endswith(".csv") != True:
 
 keys = np.loadtxt(open(key, "r"), dtype="str", delimiter=",", skiprows=1)
 	
-datas = np.loadtxt(open(data, "r"), delimiter=",", skiprows=1)
+datas = np.genfromtxt(data, delimiter=',', skip_header=True)[:, 0:]
+# datas = np.loadtxt(open(data, "r"), delimiter=",", skiprows=1)
 
 xrf_las = lasio.LASFile()
 xrf_las.version.WRAP

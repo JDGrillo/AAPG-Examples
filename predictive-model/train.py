@@ -16,11 +16,13 @@ output_data = data[:,9]
 model = Sequential()
 model.add(Dense(9, input_dim=9, activation='relu'))
 # model.add(Dense(9, activation='relu'))
-model.add(Dense(1, kernel_initializer='normal'))
+model.add(Dense(1))
 
-model.compile(loss='mean_squared_error', optimizer="adam", metrics=['accuracy'])
+optimizer = keras.optimizers.RMSprop(0.001)
 
-model.fit(input_data, output_data, epochs=10000, batch_size=10)
+model.compile(loss='mean_squared_error', optimizer=optimizer, metrics=['accuracy'])
+
+model.fit(input_data, output_data, epochs=1000, batch_size=10)
 
 _, accuracy = model.evaluate(input_data, output_data)
 print('Accuracy: %.2f' % (accuracy*100))

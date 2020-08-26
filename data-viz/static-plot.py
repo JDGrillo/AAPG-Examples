@@ -22,4 +22,4 @@ axs[0, 1].title.set_text("%Ca vs. Depth Colored by Calcite")
 axs[1, 1].scatter(data[:,8], data[:,32], c=data[:,32])
 axs[1, 1].title.set_text("%Ca vs. %Calcite Colored by Calcite")
 
-plt.savefig("Plot.png")
+plt.savefig("Static-Plot.png")
